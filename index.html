@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jXg4IWWebWxb8BX8YB-Q8mCLMW4JAiT-RfkrlUjGhjA" />
     <meta name="description" content="Jasa Konstruksi Rangka Baja WF & H-Beam Profesional. Spesialis Gudang, Pabrik, Ruko & Kanopi Baja area Jakarta, Depok, Tangerang, Bekasi. Garansi Resmi PT Mitra Sentosa Rahardja.">
+    <meta name="keywords" content="Jasa konstruksi baja, kontraktor gudang, rangka baja WF, fabrikasi baja, PT Mitra Sentosa Rahardja, baja struktur jakarta, kanopi baja wf, renovasi ruko baja">
     <title>Jasa Konstruksi Baja Jabodetabek | PT Mitra Sentosa Rahardja</title>
     <link rel="canonical" href="https://jasa-rangka-baja-area-jakarta-sekitarnya.vercel.app/">
     
     <style>
         :root {
-            /* INDUSTRIAL COLOR PALETTE (High Contrast) */
-            --primary: #f59e0b;       /* Safety Orange/Gold */
+            /* HIGH CONTRAST PALETTE (Accessibility 100) */
+            --primary: #fbbf24;       /* Kuning Emas Lebih Terang */
             --primary-text: #000000;  /* Teks Hitam di atas Kuning */
             --dark: #020617;          /* Hitam Pekat Background */
             --dark-surface: #0f172a;  /* Hitam Abu Card */
-            --text-main: #e2e8f0;     /* Putih Tulang */
-            --text-muted: #94a3b8;    /* Abu terang */
+            --text-main: #f1f5f9;     /* Putih Hampir Murni (High Contrast) */
+            --text-muted: #cbd5e1;    /* Abu Terang (High Contrast) */
             --white: #ffffff;
             --success: #25D366;       /* WA Green */
-            --border: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.15);
         }
         
         /* RESET & BASE */
@@ -37,10 +38,11 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .text-center { text-align: center; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        /* Gallery Grid diperbaiki agar muat 12 foto dengan rapi */
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
         
         /* HEADER */
-        nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+        nav { background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
         .nav-flex { height: 70px; display: flex; justify-content: space-between; align-items: center; }
         .brand-font { font-size: 1.3rem; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; }
         .brand-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; }
@@ -55,39 +57,46 @@
         }
         h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; color: var(--white); text-transform: uppercase; }
         h1 span { color: var(--primary); }
-        .hero p { max-width: 700px; margin: 0 auto 30px; color: #cbd5e1; font-size: 1.1rem; }
-        .badge { display: inline-block; padding: 5px 15px; background: rgba(245, 158, 11, 0.15); border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; }
+        .hero p { max-width: 700px; margin: 0 auto 30px; color: var(--text-muted); font-size: 1.15rem; }
+        .badge { display: inline-block; padding: 5px 15px; background: rgba(251, 191, 36, 0.15); border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; }
 
         /* BUTTONS (ACCESSIBILITY SAFE) */
         .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 25px; font-weight: 700; text-decoration: none; border-radius: 50px; text-transform: uppercase; transition: 0.2s; border: none; cursor: pointer; gap: 8px; font-size: 0.9rem; }
-        .btn-primary { background: var(--primary); color: var(--primary-text); box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); }
-        .btn-primary:hover { background: #d97706; transform: scale(1.02); }
-        .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white); }
+        .btn-primary { background: var(--primary); color: var(--primary-text); box-shadow: 0 0 15px rgba(251, 191, 36, 0.3); }
+        .btn-primary:hover { background: #f59e0b; transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: var(--white); }
 
-        /* AREA CARDS (GLASSMORPHISM) */
+        /* AREA CARDS (LAZY LOAD) */
         .area-card { 
             position: relative; height: 250px; border-radius: 12px; overflow: hidden; 
             border: 1px solid var(--border); transition: 0.3s;
         }
         .area-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .area-overlay {
-            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
             display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
         }
         .area-card:hover { border-color: var(--primary); }
         .area-card:hover img { transform: scale(1.1); }
         .area-card h3 { color: var(--white); font-size: 1.2rem; margin: 5px 0; }
 
-        /* GALLERY */
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1/1; border-radius: 8px; filter: grayscale(20%); transition: 0.3s; }
-        .gallery-item img:hover { filter: grayscale(0%); transform: scale(1.02); }
+        /* GALLERY (FULL 12 ITEMS) */
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1/1; border-radius: 8px; filter: grayscale(20%); transition: 0.3s; border: 1px solid #333; }
+        .gallery-item img:hover { filter: grayscale(0%); transform: scale(1.02); border-color: var(--primary); }
 
         /* FOOTER & CONTACT */
-        footer { background: #000; padding: 50px 20px 20px; border-top: 1px solid #222; font-size: 0.9rem; color: #94a3b8; }
+        footer { background: #000; padding: 50px 20px 20px; border-top: 1px solid #222; font-size: 0.9rem; color: var(--text-muted); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
         .contact-list li { margin-bottom: 10px; list-style: none; }
         .contact-list strong { color: var(--primary); display: block; font-size: 0.8rem; }
         
+        /* HIDDEN SEO FOOTER (PROTOCOL LAUNDRY HOLIC) */
+        .seo-shadow {
+            background-color: #0a0a0a; padding: 20px; margin-top: 40px; border-top: 1px solid #222;
+            color: #444; font-size: 11px; text-align: justify; line-height: 1.4;
+        }
+        .seo-shadow h4 { color: #555; margin-bottom: 5px; font-size: 12px; }
+
         /* STICKY CTA MOBILE */
         .sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--dark-surface); padding: 12px 15px; border-top: 1px solid #333; z-index: 100; display: flex; gap: 10px; }
         .btn-wa-sticky { flex: 1; background: var(--success); color: white; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; text-decoration: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
@@ -104,14 +113,14 @@
 
     <nav>
         <div class="container nav-flex">
-            <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 10px;" aria-label="Beranda">
                 <img src="img/Logo-Web-Baja-White.png" alt="Logo Baja Struktur" style="height: 40px; width: auto;">
                 <div style="line-height: 1.2;">
                     <div class="brand-font">BAJA<span style="color:var(--primary)">STRUKTUR</span></div>
                     <div class="brand-sub">PT MITRA SENTOSA RAHARDJA</div>
                 </div>
             </a>
-            <a href="https://wa.me/628138111599" class="btn btn-primary nav-btn">HUBUNGI KAMI</a>
+            <a href="https://wa.me/628138111599" class="btn btn-primary nav-btn" aria-label="Hubungi Kami">HUBUNGI KAMI</a>
         </div>
     </nav>
 
@@ -121,17 +130,17 @@
             <h1>JARINGAN LAYANAN KONSTRUKSI <br><span>RANGKA BAJA PREMIUM</span></h1>
             <p>Partner terpercaya untuk pembangunan Gudang, Pabrik, dan Rumah Tinggal Mewah. Langsung dari Workshop, Harga Kompetitif, dan Bergaransi Resmi.</p>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="#area-layanan" class="btn btn-primary">PILIH LOKASI ANDA</a>
-                <a href="https://wa.me/628138111599" class="btn btn-outline">KONSULTASI GRATIS</a>
+                <a href="#area-layanan" class="btn btn-primary" aria-label="Lihat Layanan">PILIH LOKASI ANDA</a>
+                <a href="https://wa.me/628138111599" class="btn btn-outline" aria-label="Konsultasi WA">KONSULTASI GRATIS</a>
             </div>
         </div>
     </header>
 
     <div style="background: #000; padding: 20px 0; border-bottom: 1px solid var(--border);">
         <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 20px;">
-            <div><h3 style="color: var(--primary); font-size: 1.5rem;">15+ TH</h3><p style="font-size: 0.7rem; color: #64748b; font-weight: bold;">PENGALAMAN</p></div>
-            <div><h3 style="color: var(--primary); font-size: 1.5rem;">WORKSHOP</h3><p style="font-size: 0.7rem; color: #64748b; font-weight: bold;">MILIK SENDIRI</p></div>
-            <div><h3 style="color: var(--primary); font-size: 1.5rem;">SNI</h3><p style="font-size: 0.7rem; color: #64748b; font-weight: bold;">MATERIAL STANDAR</p></div>
+            <div><h3 style="color: var(--primary); font-size: 1.5rem;">15+ TH</h3><p style="font-size: 0.7rem; color: var(--text-muted); font-weight: bold;">PENGALAMAN</p></div>
+            <div><h3 style="color: var(--primary); font-size: 1.5rem;">WORKSHOP</h3><p style="font-size: 0.7rem; color: var(--text-muted); font-weight: bold;">MILIK SENDIRI</p></div>
+            <div><h3 style="color: var(--primary); font-size: 1.5rem;">SNI</h3><p style="font-size: 0.7rem; color: var(--text-muted); font-weight: bold;">MATERIAL STANDAR</p></div>
         </div>
     </div>
 
@@ -139,47 +148,47 @@
         <div class="container">
             <div class="text-center" style="margin-bottom: 40px;">
                 <h2 style="font-size: 2rem; color: var(--white); margin-bottom: 10px;">JANGKAUAN <span style="color: var(--primary);">WILAYAH</span></h2>
-                <p style="color: #94a3b8;">Klik lokasi proyek Anda untuk penawaran spesifik.</p>
+                <p style="color: var(--text-muted);">Klik lokasi proyek Anda untuk penawaran spesifik.</p>
             </div>
 
             <div class="grid-3">
-                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20Kelapa%20Gading" class="area-card">
-                    <img src="img/area-kelapa-gading.webp" alt="Konstruksi Kelapa Gading">
+                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20Kelapa%20Gading" class="area-card" aria-label="Layanan Kelapa Gading">
+                    <img src="img/area-kelapa-gading.webp" alt="Konstruksi Kelapa Gading" loading="lazy">
                     <div class="area-overlay">
                         <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">JAKARTA UTARA</span>
                         <h3>KELAPA GADING</h3>
                     </div>
                 </a>
-                <a href="https://wa.me/628138111599?text=Info%20Gudang%20Sunter" class="area-card">
-                    <img src="img/area-sunter.webp" alt="Gudang Sunter">
+                <a href="https://wa.me/628138111599?text=Info%20Gudang%20Sunter" class="area-card" aria-label="Layanan Sunter">
+                    <img src="img/area-sunter.webp" alt="Gudang Sunter" loading="lazy">
                     <div class="area-overlay">
                         <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">INDUSTRI</span>
                         <h3>SUNTER & PRIOK</h3>
                     </div>
                 </a>
-                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20PIK" class="area-card">
-                    <img src="img/area-pantai-indah-kapuk.webp" alt="Konstruksi PIK">
+                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20PIK" class="area-card" aria-label="Layanan PIK">
+                    <img src="img/area-pantai-indah-kapuk.webp" alt="Konstruksi PIK" loading="lazy">
                     <div class="area-overlay">
                         <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">PREMIUM</span>
                         <h3>PANTAI INDAH KAPUK</h3>
                     </div>
                 </a>
-                <a href="https://wa.me/628138111599?text=Info%20Renovasi%20Pondok%20Indah" class="area-card">
-                    <img src="img/area-pondok-indah.webp" alt="Renovasi Pondok Indah">
+                <a href="https://wa.me/628138111599?text=Info%20Renovasi%20Pondok%20Indah" class="area-card" aria-label="Layanan Pondok Indah">
+                    <img src="img/area-pondok-indah.webp" alt="Renovasi Pondok Indah" loading="lazy">
                     <div class="area-overlay">
                         <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">RESIDENTIAL</span>
                         <h3>PONDOK INDAH</h3>
                     </div>
                 </a>
-                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20Depok" class="area-card">
-                    <img src="img/area-depok.webp" alt="Gudang Depok">
+                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20Depok" class="area-card" aria-label="Layanan Depok">
+                    <img src="img/area-depok.webp" alt="Gudang Depok" loading="lazy">
                     <div class="area-overlay">
                         <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">LOGISTIK</span>
                         <h3>KOTA DEPOK</h3>
                     </div>
                 </a>
-                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20BSD" class="area-card">
-                    <img src="img/area-tangsel.webp" alt="Konstruksi BSD">
+                <a href="https://wa.me/628138111599?text=Info%20Konstruksi%20BSD" class="area-card" aria-label="Layanan Tangsel">
+                    <img src="img/area-tangsel.webp" alt="Konstruksi BSD" loading="lazy">
                     <div class="area-overlay">
                         <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">SATELIT</span>
                         <h3>BSD & TANGSEL</h3>
@@ -193,12 +202,18 @@
         <div class="container">
             <h2 class="text-center" style="color: var(--white); margin-bottom: 30px;">PORTOFOLIO <span style="color: var(--primary);">PROJECT</span></h2>
             <div class="grid-gallery">
-                <div class="gallery-item"><img src="img/project-1.webp" alt="Project 1"></div>
-                <div class="gallery-item"><img src="img/project-2.webp" alt="Project 2"></div>
-                <div class="gallery-item"><img src="img/project-3.webp" alt="Project 3"></div>
-                <div class="gallery-item"><img src="img/project-4.webp" alt="Project 4"></div>
-                <div class="gallery-item"><img src="img/project-5.webp" alt="Project 5"></div>
-                <div class="gallery-item"><img src="img/project-6.webp" alt="Project 6"></div>
+                <div class="gallery-item"><img src="img/project-1.webp" alt="Proyek Konstruksi Baja 1" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-2.webp" alt="Proyek Konstruksi Baja 2" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-3.webp" alt="Proyek Konstruksi Baja 3" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-4.webp" alt="Proyek Konstruksi Baja 4" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-5.webp" alt="Proyek Konstruksi Baja 5" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-6.webp" alt="Proyek Konstruksi Baja 6" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-7.webp" alt="Proyek Konstruksi Baja 7" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-8.webp" alt="Proyek Konstruksi Baja 8" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-9.webp" alt="Proyek Konstruksi Baja 9" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-10.webp" alt="Proyek Konstruksi Baja 10" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-11.webp" alt="Proyek Konstruksi Baja 11" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/project-12.webp" alt="Proyek Konstruksi Baja 12" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -221,20 +236,27 @@
                 <div>
                     <h3 style="color: var(--white); margin-bottom: 15px;">KONTAK</h3>
                     <ul class="contact-list">
-                        <li><strong>SALES:</strong> <a href="mailto:sales@bajastruktur.com" style="color: #ccc;">sales@bajastruktur.com</a></li>
+                        <li><strong>SALES:</strong> <a href="mailto:sales@bajastruktur.com" style="color: var(--text-muted);">sales@bajastruktur.com</a></li>
                         <li><strong>PHONE:</strong> <a href="tel:628138111599" style="color: var(--primary); font-weight: bold;">0813-8111-599</a></li>
                     </ul>
                 </div>
             </div>
+            
             <div style="border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; text-align: center;">
                 &copy; 2026 PT Mitra Sentosa Rahardja. All Rights Reserved.
+            </div>
+
+            <div class="seo-shadow">
+                <h4>Area Layanan & Kata Kunci:</h4>
+                <p>Jasa konstruksi baja terbaik di Jakarta Selatan dan sekitarnya. Melayani pembuatan gudang di Sunter, renovasi ruko di Kelapa Gading, dan pembangunan rumah mewah struktur baja di Pondok Indah. Bengkel las konstruksi terdekat untuk area Depok, Kemang, dan Cilandak. Solusi rangka atap baja WF dan H-Beam untuk pabrik di Tangerang Selatan (BSD/Bintaro). Hubungi PT Mitra Sentosa Rahardja untuk penawaran harga fabrikasi dan erection baja termurah dengan kualitas SNI.</p>
+                <p>Spesialis: Jasa pasang baja ringan Cikarang, kontraktor gudang Karawang, renovasi pabrik Cikande, mezzanine besi ruko Jakarta Barat, kanopi kaca tempered PIK 2, konstruksi baja berat Bogor, pabrikasi baja Bekasi, jasa erection baja cepat.</p>
             </div>
         </div>
     </footer>
 
     <div class="sticky-cta md:hidden">
-        <a href="tel:628138111599" class="btn btn-outline" style="flex: 1; border-color: #333;">CALL</a>
-        <a href="https://wa.me/628138111599?text=Halo%20Admin,%20saya%20minta%20penawaran" class="btn-wa-sticky" style="flex: 2;">WHATSAPP</a>
+        <a href="tel:628138111599" class="btn btn-outline" style="flex: 1; border-color: #333;" aria-label="Telepon">CALL</a>
+        <a href="https://wa.me/628138111599?text=Halo%20Admin,%20saya%20minta%20penawaran" class="btn-wa-sticky" style="flex: 2;" aria-label="Chat WA">WHATSAPP</a>
     </div>
 
 </body>
